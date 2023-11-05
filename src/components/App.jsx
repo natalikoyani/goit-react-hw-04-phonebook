@@ -31,7 +31,7 @@ export const App = () => {
   };
 
   const deleteContact = id => {
-    setContacts(prevState => contacts.filter(contact => contact.id !== id));
+    setContacts(prevState => prevState.filter(contact => contact.id !== id));
   };
 
   const filterContacts = () => {
@@ -47,7 +47,7 @@ export const App = () => {
       <h2>Phonebook</h2>
       <ContactForm onAddContact={addContact} />
       <h2>Contacts</h2>
-      <Filter items={filteredContacts} onChange={onFilterChange} />
+      <Filter items={contacts} onChange={onFilterChange} />
       <ContactList items={filteredContacts} onDelete={deleteContact} />
     </div>
   );
